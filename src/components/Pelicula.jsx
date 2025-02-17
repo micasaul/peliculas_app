@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Pelicula = ({ peliculas = [] }) => {
   return (
     <>
@@ -17,6 +19,10 @@ const Pelicula = ({ peliculas = [] }) => {
       )}
     </>
   );
+};
+
+Pelicula.PropTypes = {
+    peliculas: PropTypes.array.isRequired, // se hace esto porque se espera un array
 };
 
 export default Pelicula;
