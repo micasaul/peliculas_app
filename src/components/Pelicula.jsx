@@ -9,7 +9,7 @@ const Pelicula = ({ peliculas = [] }) => {
             <div key={pelicula.id} className="card">
               <h1>{pelicula.original_title}</h1>
               <img 
-                src={`https://image.tmdb.org/t/p/w200${pelicula.poster_path || ""}`} 
+                src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path || ""}`} 
                 alt={pelicula.original_title} 
               />
               <p>{pelicula.overview}</p>
