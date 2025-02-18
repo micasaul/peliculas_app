@@ -1,17 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --bordes: #333333;
+    --fondo: #191919;
+    --texto: #fff;
+    --texto2: #000;
+}   
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #191919;
+}
+
+input{
+    margin: 15px 0 0 20px;
+    background-color: var(--bordes);
+    color: var(--texto);
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+button{
+    background-color: var(--texto);
+    color: var(--bordes);
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     padding: 20px;
 }
 
 .card{
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #333333;
     border-radius: 8px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
     height: auto;
 }
@@ -35,19 +67,29 @@
 }
 
 .card h1{
-    top: 15px;
+    top: 5px;
     margin-bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 3vw;
+    width: 100%;
+    font-family: roboto condensed;
+    font-weight: 400;
+    font-size: 2.5vw;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .card p{
-    bottom: 20px;
+    bottom: 10px;
     padding: 0 10px;
+    margin-block-start: 0;
     margin-top: 5px;
-    font-size: 1.5vw;
+    font-family: raleway;
+    font-size: 1vw;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -63,33 +105,3 @@
 .card:hover h1, .card:hover p{
     opacity: 1;
 }
-
-/* .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.card h1 {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card p {
-    padding: 0 10px;
-    font-size: 0.9em;
-    color: #666;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box; */
-    /* -webkit-line-clamp: 3; Number of lines to show */
-    /* -webkit-box-orient: vertical;
-} */
