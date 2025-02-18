@@ -9,54 +9,41 @@ const Home = () => {
   const [busqueda, setBusqueda] = useState("");
 
   const [series, setSeries] = useState([ ]);
-  const [serie_name, setSerie_name] = useState("");
 
   useEffect(() => {
-    const cargarPeliculas = async () => {
-      const data = await peliculasDefecto();
-      setPeliculas(data.results);
+    const cargarContenido = async () => {
+      const peliculasData = await peliculasDefecto();
+      const seriesData = await seriesDefecto();
+      setPeliculas(peliculasData.results);
+      setSeries(seriesData.results);
     };
-    cargarPeliculas();
+    cargarContenido();
   }, []);
 
   const obtenerPorTitulo = async () => {  
     if (busqueda.trim() === "") {
-      const data = await peliculasDefecto();
-      setPeliculas(data.results);
+      const peliculasData = await peliculasDefecto();
+      const seriesData = await seriesDefecto();
+      setPeliculas(peliculasData.results);
+      setSeries(seriesData.results);
     } else {
-      const data = await getByTitle(busqueda);
-      setPeliculas(data.results);
+      const peliculasData = await getByTitle(busqueda);
+      const seriesData = await getByName(busqueda);
+      setPeliculas(peliculasData.results);
+      setSeries(seriesData.results);
     }
   };
-
-  const getSerieByName = async () => {
-    if (serie_name.trim()=== "") {
-      const data = await seriesDefecto(); 
-      setSeries(data.results);
-    } else{
-      const data = await getByName(serie_name);
-      setSeries(data.results);
-    }
-  }
 
   return (
     <div>
       <input 
         type="text"
-        placeholder="Buscar pelicula por título"
+        placeholder="Buscar por título"
         value={busqueda}
         onChange={(e) => setBusqueda(e.target.value)}
       />
       <button onClick={obtenerPorTitulo}>Buscar</button>
-
-      <input
-        type="text"
-        placeholder="Buscar serie por titulo"
-        value={serie_name}
-        onChange={(e) => setSerie_name(e.target.value)}
-      />
-      <button onClick={getSerieByName}>Buscar</button>
-     
+      
       <Pelicula peliculas={peliculas} />
       <Serie series={series} />
     </div>
