@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import { getByTitle } from "../utils/api";
-import { getByName } from '../utils/api'
-import { peliculasDefecto } from "../utils/api";
-import { seriesDefecto } from "../utils/api";
+import { peliculasDefecto, getByTitle, seriesDefecto, getByName } from "../utils/api";
 import Pelicula from "./Pelicula";
 import Serie from "./Serie";
 import "../styles/home.css";
