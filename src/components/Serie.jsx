@@ -1,4 +1,4 @@
-const Serie = ({ series }) => {
+const Serie = ({ series = [] }) => {
     return(
         <>
             {series.length > 0 && (

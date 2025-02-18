@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getByTitle } from "../utils/api";
-import { getShowByName } from '../utils/api'
+import { getByName } from '../utils/api'
 import { peliculasDefecto } from "../utils/api";
 import { seriesDefecto } from "../utils/api";
 import Pelicula from "./Pelicula";
@@ -37,7 +37,7 @@ const Home = () => {
       const data = await seriesDefecto(); 
       setSeries(data.results);
     } else{
-      const data = await getShowByName(serie_name);
+      const data = await getByName(serie_name);
       setSeries(data.results);
     }
   }

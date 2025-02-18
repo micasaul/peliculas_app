@@ -1,4 +1,4 @@
-export const getShowByName = async (name) => {
+export const getByName = async (name) => {
     const url = `https://api.themoviedb.org/3/search/tv?query=${name}`;
     const response = await fetch(url, {
         method: 'GET',
