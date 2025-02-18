@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const cargarPeliculas = async () => {
       const data = await peliculasDefecto();
-      setMovies(data.results);
+      setPeliculas(data.results);
     };
     cargarPeliculas();
   }, []);
