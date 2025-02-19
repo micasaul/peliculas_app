@@ -1,9 +1,12 @@
+import {useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import popcorn from "../assets/popcorn.png";
 import "../styles/header.css";
 
 const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
     
+    const navigate = useNavigate();
+
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             obtenerPorTitulo();
@@ -18,6 +21,20 @@ const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
                     <h1>Movies and Series</h1>
                 </div>
             </button>
+            <div className="menu">
+                <button
+                    onClick={() => 
+                        navigate("/serie")}
+                >  
+                    Series
+                </button>
+                <button
+                    onClick={() => 
+                        navigate("/pelicula")}
+                >
+                    Peliculas
+                </button>
+            </div>
             <div className="busqueda">
                 <input 
                     type="text"

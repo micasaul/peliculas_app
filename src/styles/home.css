@@ -24,6 +24,12 @@ body{
     padding: 20px;
 }
 
+.button-card{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .card{
     background-color: #fff;
     border: 1px solid #333333;
@@ -32,7 +38,7 @@ body{
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
-    height: auto;
+    height: 100%;
 }
 
 .card img{

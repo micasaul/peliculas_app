@@ -42,6 +42,29 @@ header{
     font-family: darumadrop one;
 }
 
+.menu{
+    display: flex;
+    margin: 0 auto;
+    gap: 10px;
+    height: 100%;
+    width: fit-content;
+}
+
+.menu button{
+    justify-items: center;
+    background-color: transparent;
+    border-style:none;
+    cursor: pointer;
+    color: var(--texto);
+    font-size: 25px;
+    font-family: roboto condensed;
+    transition: filter 0.3s ease;
+}
+
+.menu button:hover{
+    filter: brightness(0.7);
+}
+
 .busqueda{
     display: flex;
     justify-content: flex-end;
@@ -56,7 +79,6 @@ header{
     border: none;
     border-radius: 2px;
     padding: 10px;
-    width: 200px;
 }
 
 .busqueda input:focus{
