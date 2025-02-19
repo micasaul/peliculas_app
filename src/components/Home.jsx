@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { peliculasDefecto, getByTitle, seriesDefecto, getByName } from "../utils/api";
+import Header from "./Header";
 import Pelicula from "./Pelicula";
 import Serie from "./Serie";
 import "../styles/home.css";
 
 const Home = () => {
-  const [peliculas, setPeliculas] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
 
+  const [busqueda, setBusqueda] = useState("");
+  const [peliculas, setPeliculas] = useState([]);
   const [series, setSeries] = useState([ ]);
 
   useEffect(() => {
@@ -34,16 +35,10 @@ const Home = () => {
     }
   };
 
+
   return (
     <div>
-      <input 
-        type="text"
-        placeholder="Buscar por título"
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-      />
-      <button onClick={obtenerPorTitulo}>Buscar</button>
-      
+      <Header busqueda={busqueda} setBusqueda={setBusqueda} obtenerPorTitulo={obtenerPorTitulo} />
       <Pelicula peliculas={peliculas} />
       <Serie series={series} />
     </div>

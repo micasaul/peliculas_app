@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --bordes: #333333;
+    --fondo: #191919;
+    --texto: #fff;
+    --texto2: #000;
+}   
+
+header{
+    background-color: var(--bordes);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo{
+    display: flex;
+    justify-content: left;
+    margin-left: 10px;
+    height: 50px;
+}
+
+.logo h1{
+    text-align: center;
+    line-height: 50px;
+    margin: 0 0 0 5px;
+    color: var(--texto);
+    font-family: darumadrop one;
+}
+
+.busqueda{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+input{
+    background-color: var(--fondo);
+    color: var(--texto);
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    width: 200px;
+}
+
+button{
+    background-color: var(--texto);
+    color: var(--bordes);
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    cursor: pointer;
+}
