@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { peliculasDefecto, getByTitle, seriesDefecto, getByName } from "../utils/api";
 import Header from "./Header";
-import Pelicula from "./Pelicula";
-import Serie from "./Serie";
+import SeriePeli from "./SeriePeli";
 import "../styles/home.css";
 
 const Home = () => {
@@ -39,9 +38,9 @@ const Home = () => {
   return (
     <div>
       <Header busqueda={busqueda} setBusqueda={setBusqueda} obtenerPorTitulo={obtenerPorTitulo} />
-      <Pelicula peliculas={peliculas} />
-      <Serie series={series} />
+      <SeriePeli peli={peliculas} serie={series}/>
     </div>
   )
 };
+
 export default Home;
