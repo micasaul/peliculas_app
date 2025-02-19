@@ -6,11 +6,15 @@ const SeriePeli = ({peli, serie }) => {
 
     const shuffle = (array) => {
         const shuffled = [...array];
-        let currentIndex = shuffled.length, randomIndex;
-        while (currentIndex != 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-            [shuffled[currentIndex], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[currentIndex]];
+        let currentIndex = shuffled.length;
+        for (let i = currentIndex - 1; i > 0; i--) {
+            for (let j = i-1; j>0; j--){
+                if (shuffled[i].popularity > shuffled[j].popularity){
+                    let x = shuffled[i];
+                    shuffled[i] = shuffled[j];
+                    shuffled[j] = x;
+                }
+            }
         }
         return shuffled;
     }
@@ -28,10 +32,10 @@ const SeriePeli = ({peli, serie }) => {
                 <div className="grid-container">
                     {seriepelis.map((seriepeli) => (
                         <div key={seriepeli.id} className="card">
-                            <h1>{seriepeli.original_title}</h1>
+                            <h1>{seriepeli.original_title || seriepeli.original_name}</h1>
                             <img 
                                 src={`https://image.tmdb.org/t/p/w500${seriepeli.poster_path || ""}`} 
-                                alt={seriepeli.original_title} 
+                                alt={seriepeli.original_title || seriepeli.original_name} 
                             />
                             <p>{seriepeli.overview}</p>
                         </div>
@@ -40,16 +44,6 @@ const SeriePeli = ({peli, serie }) => {
             )}
         </>
     )
-};
-SeriePeli.propTypes = {
-    seripelis: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            original_title: PropTypes.string.isRequired,
-            poster_path: PropTypes.string,
-            overview: PropTypes.string.isRequired,
-        })
-    ).isRequired,
 };
 
 export default SeriePeli;

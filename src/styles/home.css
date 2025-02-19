@@ -13,6 +13,10 @@ body{
     background-color: #191919;
 }
 
+.cuerpo{
+    margin-top: 90px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);

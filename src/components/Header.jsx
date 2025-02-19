@@ -12,10 +12,12 @@ const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
 
     return (
         <header>
-            <div className="logo">
-                <img src={popcorn} alt="popcorn" /> 
-                <h1>Movies and Series</h1>
-            </div>
+            <button className='logo_button' onClick={() => window.location.reload()}>
+                <div className="logo">
+                    <img src={popcorn} alt="popcorn" /> 
+                    <h1>Movies and Series</h1>
+                </div>
+            </button>
             <div className="busqueda">
                 <input 
                     type="text"

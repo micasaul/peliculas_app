@@ -34,11 +34,12 @@ const Home = () => {
     }
   };
 
-
   return (
     <div>
       <Header busqueda={busqueda} setBusqueda={setBusqueda} obtenerPorTitulo={obtenerPorTitulo} />
-      <SeriePeli peli={peliculas} serie={series}/>
+      <div className="cuerpo">
+        <SeriePeli peli={peliculas} serie={series}/>
+      </div>
     </div>
   )
 };
