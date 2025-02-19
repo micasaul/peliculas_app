@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Serie = ({ series = [] }) => {
     return(
         <>
@@ -17,6 +19,17 @@ const Serie = ({ series = [] }) => {
             )}
         </>
     );
+};
+
+Serie.propTypes = {
+    series: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            original_name: PropTypes.string.isRequired,
+            poster_path: PropTypes.string,
+            overview: PropTypes.string.isRequired,
+        })
+    ).isRequired,
 };
 
 export default Serie;

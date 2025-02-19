@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Pelicula = ({ peliculas = [] }) => {
   return (
     <>
@@ -17,6 +19,17 @@ const Pelicula = ({ peliculas = [] }) => {
       )}
     </>
   );
+};
+
+Pelicula.propTypes = {
+  peliculas: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      original_title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string,
+      overview: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Pelicula;
