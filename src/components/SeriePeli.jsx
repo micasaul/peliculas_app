@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
 const SeriePeli = ({peli, serie }) => {
@@ -41,11 +42,20 @@ const SeriePeli = ({peli, serie }) => {
         </>
     )
 };
+
 SeriePeli.propTypes = {
-    seripelis: PropTypes.arrayOf(
+    peli: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
             original_title: PropTypes.string.isRequired,
+            poster_path: PropTypes.string,
+            overview: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+    serie: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            original_name: PropTypes.string.isRequired,
             poster_path: PropTypes.string,
             overview: PropTypes.string.isRequired,
         })
