@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import popcorn from "../assets/popcorn.png";
 import "../styles/header.css";
 
@@ -28,6 +28,11 @@ const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
             </div>
         </header>
     );
+};
+Header.propTypes = {
+    busqueda: PropTypes.string.isRequired,
+    setBusqueda: PropTypes.func.isRequired,
+    obtenerPorTitulo: PropTypes.func.isRequired,
 };
 
 export default Header;

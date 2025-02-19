@@ -28,10 +28,10 @@ const SeriePeli = ({peli, serie }) => {
                 <div className="grid-container">
                     {seriepelis.map((seriepeli) => (
                         <div key={seriepeli.id} className="card">
-                            <h1>{seriepeli.original_title||seriepeli.name}</h1>
+                            <h1>{seriepeli.original_title}</h1>
                             <img 
                                 src={`https://image.tmdb.org/t/p/w500${seriepeli.poster_path || ""}`} 
-                                alt={seriepeli.original_title||seriepeli.name} 
+                                alt={seriepeli.original_title} 
                             />
                             <p>{seriepeli.overview}</p>
                         </div>
@@ -40,6 +40,16 @@ const SeriePeli = ({peli, serie }) => {
             )}
         </>
     )
+};
+SeriePeli.propTypes = {
+    seripelis: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            original_title: PropTypes.string.isRequired,
+            poster_path: PropTypes.string,
+            overview: PropTypes.string.isRequired,
+        })
+    ).isRequired,
 };
 
 export default SeriePeli;
