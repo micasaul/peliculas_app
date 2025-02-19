@@ -4,6 +4,12 @@ import "../styles/header.css";
 
 const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
     
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            obtenerPorTitulo();
+        }
+    }
+
     return (
         <header>
             <div className="logo">
@@ -16,6 +22,7 @@ const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
                     placeholder="Buscar por título"
                     value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
+                    onKeyDown={handleKeyDown}
                 />
                 <button onClick={obtenerPorTitulo}>Buscar</button>
             </div>

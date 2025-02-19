@@ -47,6 +47,10 @@ input{
     width: 200px;
 }
 
+input:focus{
+    outline: none;
+}
+
 button{
     background-color: var(--texto);
     color: var(--bordes);
