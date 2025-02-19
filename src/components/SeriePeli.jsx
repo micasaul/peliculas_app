@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SeriePeli = ({peli, serie }) => {
+
+    const navigate = useNavigate();
 
     const [seriepelis, setSeriePelis] = useState([]);
 
@@ -32,14 +35,24 @@ const SeriePeli = ({peli, serie }) => {
             {seriepelis.length > 0 && (
                 <div className="grid-container">
                     {seriepelis.map((seriepeli) => (
-                        <div key={seriepeli.id} className="card">
-                            <h1>{seriepeli.original_title || seriepeli.original_name}</h1>
-                            <img 
-                                src={`https://image.tmdb.org/t/p/w500${seriepeli.poster_path || ""}`} 
-                                alt={seriepeli.original_title || seriepeli.original_name} 
-                            />
-                            <p>{seriepeli.overview}</p>
-                        </div>
+                        <button
+                            key={seriepeli.id}
+                            onClick={() => {
+                                const title = seriepeli.original_title || seriepeli.original_name;
+                                const route = seriepeli.original_title ? `/pelicula/${title}` : `/serie/${title}`;
+                                navigate(route);
+                            }}
+                            className="button-card"
+                        >
+                            <div key={seriepeli.id} className="card">
+                                <h1>{seriepeli.original_title || seriepeli.original_name}</h1>
+                                <img 
+                                    src={`https://image.tmdb.org/t/p/w500${seriepeli.poster_path || ""}`}
+                                    alt={seriepeli.original_title || seriepeli.original_name} 
+                                />
+                                <p>{seriepeli.overview}</p>
+                            </div>
+                        </button>
                     ))}
                 </div>
             )}
