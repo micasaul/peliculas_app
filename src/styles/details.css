@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --bordes: #333333;
+    --fondo: #191919;
+    --texto: #fff;
+    --texto2: #000;
+}   
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuerpo{
+    display: flex;
+    width: 60%;
+    margin: 60px auto;
+    gap: 50px;
+}
+
+.cuerpo img{
+    width: 300px;
+}
+
+.info h1{
+    display: block;
+    justify-content: center;
+    color: var(--texto);
+    font-family: roboto condensed;
+    font-weight: 500;
+    font-size: 4vw;
+}
+
+.info p{
+    color: var(--texto);
+    font-family: raleway;
+}

@@ -7,15 +7,11 @@
 }   
 
 body{
-    margin: 0;
+    margin: 90px 0 0 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #191919;
 }
-
-/* .cuerpo{
-    margin-top: 90px;
-} */
 
 .grid-container {
     display: grid;

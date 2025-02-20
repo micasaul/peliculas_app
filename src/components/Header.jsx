@@ -15,7 +15,7 @@ const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
 
     return (
         <header>
-            <button className='logo_button' onClick={() => window.location.reload()}>
+            <button className='logo_button' onClick={() => navigate("/")}>
                 <div className="logo">
                     <img src={popcorn} alt="popcorn" /> 
                     <h1>Movies and Series</h1>

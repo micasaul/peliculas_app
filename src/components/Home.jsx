@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
-import { peliculasDefecto, getByTitle, seriesDefecto, getByName } from "../utils/api";
-import Header from "./Header";
+import { useEffect } from "react";
+import { peliculasDefecto, seriesDefecto } from "../utils/api";
 import SeriePeli from "./SeriePeli";
 import "../styles/home.css";
 
-const Home = () => {
-
-  const [busqueda, setBusqueda] = useState("");
-  const [peliculas, setPeliculas] = useState([]);
-  const [series, setSeries] = useState([ ]);
+const Home = ({setPeliculas, setSeries, peliculas, series}) => {
 
   useEffect(() => {
     const cargarContenido = async () => {
@@ -20,24 +15,11 @@ const Home = () => {
     cargarContenido();
   }, []);
 
-  const obtenerPorTitulo = async () => {  
-    if (busqueda.trim() === "") {
-      const peliculasData = await peliculasDefecto();
-      const seriesData = await seriesDefecto();
-      setPeliculas(peliculasData.results);
-      setSeries(seriesData.results);
-    } else {
-      const peliculasData = await getByTitle(busqueda);
-      const seriesData = await getByName(busqueda);
-      setPeliculas(peliculasData.results);
-      setSeries(seriesData.results);
-    }
-  };
+  
 
   return (
     <div>
-      <Header busqueda={busqueda} setBusqueda={setBusqueda} obtenerPorTitulo={obtenerPorTitulo} />
-      <div className="cuerpo">
+      <div>
         <SeriePeli peli={peliculas} serie={series}/>
       </div>
     </div>
