@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { peliculasDefecto, seriesDefecto } from "../utils/api";
 import SeriePeli from "./SeriePeli";
@@ -13,7 +14,7 @@ const Home = ({setPeliculas, setSeries, peliculas, series}) => {
       setSeries(seriesData.results);
     };
     cargarContenido();
-  }, []);
+  }, [setPeliculas, setSeries]);
 
   
 
@@ -25,5 +26,12 @@ const Home = ({setPeliculas, setSeries, peliculas, series}) => {
     </div>
   )
 };
+
+Home.propTypes = {
+  setPeliculas: PropTypes.func.isRequired,
+  setSeries: PropTypes.func.isRequired,
+  peliculas: PropTypes.array.isRequired,
+  series: PropTypes.array.isRequired
+}
 
 export default Home;
