@@ -12,30 +12,15 @@ import './App.css'
 function App() {
 
   const [busqueda, setBusqueda] = useState("");
-  const [peliculas, setPeliculas] = useState([]);
-  const [series, setSeries] = useState([]);
-
-  const obtenerPorTitulo = async () => {  
-    if (busqueda.trim() === "") {
-      const peliculasData = await peliculasDefecto();
-      const seriesData = await seriesDefecto();
-      setPeliculas(peliculasData.results);
-      setSeries(seriesData.results);
-    } else {
-      const peliculasData = await getByTitle(busqueda);
-      const seriesData = await getByName(busqueda);
-      setPeliculas(peliculasData.results);
-      setSeries(seriesData.results);
-    }
-  };
 
   return (
     <Router>
       <div>
-        <Header busqueda={busqueda} setBusqueda={setBusqueda} obtenerPorTitulo={obtenerPorTitulo}/>
+        <Header busqueda={busqueda} setBusqueda={setBusqueda}/>
       </div>
       <Routes>
-        <Route path="/" element={<Home setPeliculas={setPeliculas} setSeries={setSeries} peliculas={peliculas} series={series} />} />
+        <Route path="/" element={<Home busqueda={busqueda} setBusqueda={setBusqueda} />} />
+        <Route path='/:busqueda' element={<Home busqueda={busqueda} setBusqueda={setBusqueda} />} />
         <Route path='/serie' element={<Serie />}/>
         <Route path='/pelicula' element={<Pelicula />}/>
         <Route path="/serie/:original_name" element={<SerieDetalle />} />

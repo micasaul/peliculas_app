@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import popcorn from "../assets/popcorn.png";
 import "../styles/header.css";
 
-const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
+const Header = ({busqueda, setBusqueda}) => {
     
     const navigate = useNavigate();
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-            obtenerPorTitulo();
+            navigate(`/${busqueda}`);
         }
     }
 
@@ -45,7 +45,7 @@ const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
                     onChange={(e) => setBusqueda(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
-                <button onClick={obtenerPorTitulo}>Buscar</button>
+                <button onClick={() => {navigate(`/${busqueda}`); }}>Buscar</button>
             </div>
         </header>
     );
