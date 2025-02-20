@@ -21,7 +21,7 @@ const SerieDetalle = () => {
             <img src={`https://image.tmdb.org/t/p/w500${serie.poster_path || ""}`} alt={serie.original_name} />
             <div className="info">    
                 <h1>{serie.original_name}</h1>
-                <p>{serie.overview}</p>
+                <p>{serie.overview ? serie.overview : "Lo sentimos. No hay información disponible."}</p>
             </div>
         </div>
     );

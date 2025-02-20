@@ -20,7 +20,7 @@ const PeliculaDetalle = () => {
             <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path || ""}`} alt={pelicula.original_title} />
             <div className="info">
                 <h1>{pelicula.original_title}</h1>
-                <p>{pelicula.overview}</p>
+                <p>{pelicula.overview ? pelicula.overview : "Lo sentimos. No hay información disponible"}</p>
             </div>
         </div>
     );

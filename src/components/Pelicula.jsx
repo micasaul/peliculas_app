@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { peliculasDefecto } from "../utils/api";
+import "../styles/details.css"
 
 const Pelicula = () =>{
 
@@ -36,7 +37,7 @@ const Pelicula = () =>{
                                     src={`https://image.tmdb.org/t/p/w500${peliculas.poster_path || ""}`}
                                     alt={peliculas.original_title} 
                                 />
-                                <p>{peliculas.overview}</p>
+                                <p>{peliculas.overview ? peliculas.overview : "Lo sentimos. No hay información disponible"}</p>
                             </div>
                         </button>
                     ))}

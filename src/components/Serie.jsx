@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { seriesDefecto } from "../utils/api";
+import "../styles/details.css"
 
 const Serie = () =>{
 
@@ -36,7 +37,7 @@ const Serie = () =>{
                                     src={`https://image.tmdb.org/t/p/w500${series.poster_path || ""}`}
                                     alt={series.original_name} 
                                 />
-                                <p>{series.overview}</p>
+                                <p>{series.overview ? series.overview : "Lo sentimos. No hay información disponible."}</p>
                             </div>
                         </button>
                     ))}
