@@ -4,12 +4,6 @@
     --fondo: #191919;
     --texto: #fff;
     --texto2: #000;
-}   
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .cuerpo{
