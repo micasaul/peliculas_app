@@ -20,6 +20,13 @@ body{
 }
 
 .cuerpo img{
+    justify-content: left;
+    height: 300px;
+    width: auto;
+}
+
+.info{
+    justify-content: right;
     width: 300px;
 }
 
