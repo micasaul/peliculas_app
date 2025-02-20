@@ -24,17 +24,17 @@ const Header = ({busqueda, setBusqueda, obtenerPorTitulo}) => {
             <div className="menu">
                 <button
                     onClick={() => 
-                        navigate("/serie")
-                    }
-                >  
-                    Series
-                </button>
-                <button
-                    onClick={() => 
                         navigate("/pelicula")
                     }
                 >
                     Peliculas
+                </button>
+                <button
+                    onClick={() => 
+                        navigate("/serie")
+                    }
+                >  
+                    Series
                 </button>
             </div>
             <div className="busqueda">
