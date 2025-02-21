@@ -19,24 +19,25 @@ body{
 }
 
 .cuerpo img{
-    justify-content: left;
     height: 300px;
     width: auto;
 }
 
 .info{
-    justify-content: right;
+    display: flex;
+    flex-direction: column;
     height: 300px;
-    width: auto;
+    width: calc(100% + 100px);
 }
 
 .info h1{
     display: block;
-    justify-content: center;
+    align-self: flex-start;
     color: var(--texto);
     font-family: roboto condensed;
     font-weight: 500;
     font-size: 4vw;
+    margin: 0;
 }
 
 .info p{

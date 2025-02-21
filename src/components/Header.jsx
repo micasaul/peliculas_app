@@ -1,6 +1,6 @@
 import {useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import popcorn from "../assets/popcorn.png";
+import logo from "../assets/Logo_text.png";
 import "../styles/header.css";
 
 const Header = ({busqueda, setBusqueda}) => {
@@ -17,8 +17,7 @@ const Header = ({busqueda, setBusqueda}) => {
         <header>
             <button className='logo_button' onClick={() => navigate("/")}>
                 <div className="logo">
-                    <img src={popcorn} alt="popcorn" /> 
-                    <h1>Movies and Series</h1>
+                    <img src={logo} alt="logo" /> 
                 </div>
             </button>
             <div className="menu">
