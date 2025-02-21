@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getByName, getByTitle, peliculasDefecto, seriesDefecto } from "../utils/api";
@@ -37,12 +36,5 @@ const Home = () => {
     </div>
   )
 };
-
-Home.propTypes = {
-  setPeliculas: PropTypes.func.isRequired,
-  setSeries: PropTypes.func.isRequired,
-  peliculas: PropTypes.array.isRequired,
-  series: PropTypes.array.isRequired
-}
 
 export default Home;

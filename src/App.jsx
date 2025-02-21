@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { peliculasDefecto, seriesDefecto, getByTitle, getByName } from './utils/api'
 import Home from './components/Home'
 import Header from './components/Header'
 import Serie from './components/Serie'
