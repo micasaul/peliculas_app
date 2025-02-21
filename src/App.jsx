@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { peliculasDefecto, seriesDefecto, getByTitle, getByName } from './utils/api'
 import Home from './components/Home'
 import Header from './components/Header'
 import Serie from './components/Serie'
@@ -20,7 +19,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Home busqueda={busqueda} setBusqueda={setBusqueda} />} />
-        <Route path='/:busqueda' element={<Home busqueda={busqueda} setBusqueda={setBusqueda} />} />
+        <Route path='busqueda/:busqueda' element={<Home busqueda={busqueda} setBusqueda={setBusqueda} />} />
         <Route path='/serie' element={<Serie />}/>
         <Route path='/pelicula' element={<Pelicula />}/>
         <Route path="/serie/:original_name" element={<SerieDetalle />} />

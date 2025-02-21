@@ -7,11 +7,11 @@ const Header = ({busqueda, setBusqueda}) => {
     
     const navigate = useNavigate();
 
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
-            navigate(`/${busqueda}`);
-        }
-    }
+    // const handleKeyDown = (e) => {
+    //     if (e.key === "Enter") {
+    //         navigate(`/${busqueda}`);
+    //     }
+    // }
 
     return (
         <header>
@@ -43,9 +43,9 @@ const Header = ({busqueda, setBusqueda}) => {
                     placeholder="Buscar por título"
                     value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
-                    onKeyDown={handleKeyDown}
+                    // onKeyDown={handleKeyDown}
                 />
-                <button onClick={() => {navigate(`/${busqueda}`); }}>Buscar</button>
+                <button onClick={() => {navigate(`busqueda/${busqueda}`); }}>Buscar</button>
             </div>
         </header>
     );
