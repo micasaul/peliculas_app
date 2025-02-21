@@ -24,8 +24,6 @@ header{
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: var(--texto);
-    font-size: 20px;
     margin-left: 10px;  
 }
 
@@ -38,11 +36,13 @@ header{
 
 .menu{
     display: flex;
-    justify-self: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 0 auto;
     gap: 10px;
     height: 100%;
-    width: fit-content;
 }
 
 .menu button{
@@ -63,11 +63,11 @@ header{
 
 .busqueda{
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    margin-left: auto;
     margin-right: 15px;
-}
+    position: absolute;
+    right: 0;
+}   
 
 .busqueda input{
     background-color: var(--fondo);
