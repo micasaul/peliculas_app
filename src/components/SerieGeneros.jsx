@@ -19,7 +19,7 @@ const SerieGeneros = () =>{
           setGeneros(generosData.genres);
         };
         cargarContenido();
-    }, []);
+    }, [genre]);
 
     return(
         <>

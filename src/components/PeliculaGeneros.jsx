@@ -19,7 +19,7 @@ const PeliculaGeneros = () =>{
           setGeneros(generosData.genres);
         };
         cargarContenido();
-    }, []);
+    }, [genre]);
 
     return(
         <>
