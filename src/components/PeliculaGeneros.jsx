@@ -1,17 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { peliculasDefecto, filmGenres } from "../utils/api";
+import { getPeliByGenre, filmGenres } from "../utils/api";
 
-const Pelicula = () =>{
+const PeliculaGeneros = () =>{
 
+    const {id : genre} = useParams();
     const navigate = useNavigate();
 
-    const [peliculas, setPeliculas] = useState([]);
     const [generos, setGeneros] = useState([]);
+    const [peliculas, setPeliculas] = useState([]);
 
     useEffect(() => {
         const cargarContenido = async () => {
-          const peliculasData = await peliculasDefecto();
+          const peliculasData = await getPeliByGenre(genre);
           setPeliculas(peliculasData.results);
 
           const generosData = await filmGenres();
@@ -25,10 +26,11 @@ const Pelicula = () =>{
             {peliculas.length > 0 && (
                 <div>
                     <select onChange={(e) => {
-                        const id = e.target.value
-                        navigate(`/pelicula/genero/${id}`)
-                    }}>    
-                        <option value="">Generos</option>
+                            const id = e.target.value
+                            navigate(`/pelicula/genero/${id}`)
+                        }}
+                    >
+                        <option value="">Generos</option>  
                         {generos.map((genero) => (
                             <option key={genero.id} value={genero.id}>{genero.name}</option>
                         ))}
@@ -61,4 +63,4 @@ const Pelicula = () =>{
     )
 }
 
-export default Pelicula;
+export default PeliculaGeneros;

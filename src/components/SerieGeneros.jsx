@@ -1,32 +1,32 @@
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { seriesDefecto, tvGenres } from "../utils/api";
+import { tvGenres, getSerieByGenre } from "../utils/api";
 
-const Serie = () =>{
+const SerieGeneros = () =>{
 
+    const {id : genre} = useParams();
     const navigate = useNavigate();
 
-    const [series, setSeries] = useState([]);
     const [generos, setGeneros] = useState([]);
+    const [series, setSeries] = useState([]);
 
     useEffect(() => {
-        const cargarDatos = async () => {
-          const seriesData = await seriesDefecto();
+        const cargarContenido = async () => {
+          const seriesData = await getSerieByGenre(genre);
           setSeries(seriesData.results);
 
           const generosData = await tvGenres();
           setGeneros(generosData.genres);
         };
-        cargarDatos();
+        cargarContenido();
     }, []);
-
 
     return(
         <>
             {series.length > 0 && (
                 <div>
-                    <select 
-                        onChange={(e)=>{
+                    <select
+                        onChange={(e) => {
                             const id = e.target.value
                             navigate(`/serie/genero/${id}`)
                         }}
@@ -53,7 +53,7 @@ const Serie = () =>{
                                         src={`https://image.tmdb.org/t/p/w500${serie.poster_path || ""}`}
                                         alt={serie.original_name} 
                                     />
-                                    <p>{serie.overview ? serie.overview : "Lo sentimos. No hay información disponible."}</p>
+                                    <p>{serie.overview ? serie.overview : "Lo sentimos. No hay información disponible"}</p>
                                 </div>
                             </button>
                         ))}
@@ -64,4 +64,4 @@ const Serie = () =>{
     )
 }
 
-export default Serie;
+export default SerieGeneros;
