@@ -9,7 +9,7 @@ const Header = ({busqueda, setBusqueda}) => {
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-            navigate(`/${busqueda}`);
+            navigate(`/search/${busqueda}`);
         }
     }
 
@@ -45,7 +45,7 @@ const Header = ({busqueda, setBusqueda}) => {
                     onChange={(e) => setBusqueda(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
-                <button onClick={() => {navigate(`/${busqueda}`); }}>Buscar</button>
+                <button onClick={() => {navigate(`/search/${busqueda}`); }}>Buscar</button>
             </div>
         </header>
     );

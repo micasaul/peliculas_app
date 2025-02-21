@@ -5,7 +5,7 @@ import { getByName, getByTitle, peliculasDefecto, seriesDefecto } from "../utils
 import SeriePeli from "./SeriePeli";
 import "../styles/home.css";
 
-const Home = ({busqueda, setBusqueda}) => {
+const Home = () => {
 
   const {busqueda : busquedaParam} = useParams();
 

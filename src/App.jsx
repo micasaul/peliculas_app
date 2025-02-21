@@ -19,8 +19,8 @@ function App() {
         <Header busqueda={busqueda} setBusqueda={setBusqueda}/>
       </div>
       <Routes>
-        <Route path="/" element={<Home busqueda={busqueda} setBusqueda={setBusqueda} />} />
-        <Route path='/:busqueda' element={<Home busqueda={busqueda} setBusqueda={setBusqueda} />} />
+        <Route path="/" element={<Home />} />
+        <Route path='/search/:busqueda' element={<Home />} />
         <Route path='/serie' element={<Serie />}/>
         <Route path='/pelicula' element={<Pelicula />}/>
         <Route path="/serie/:original_name" element={<SerieDetalle />} />
