@@ -6,6 +6,7 @@ import "../styles/details.css"
 const SerieDetalle = () => {
     const { original_name } = useParams();
     const [serie, setSerie] = useState({});
+    const [generos, setGeneros] = useState([]);
     const [video, setVideo] = useState({});
     
     useEffect(() => {
@@ -13,6 +14,9 @@ const SerieDetalle = () => {
             const decodedName = decodeURIComponent(original_name);
             const serieData = await getTvByName(decodedName);
             setSerie(serieData.results[0]);
+
+            const generosData = await tvGenres();
+            setGeneros(generosData.genres);
 
             const videoData = await getTvVideo(serieData.results[0].id);
             setVideo(videoData.results[0]);
@@ -27,6 +31,10 @@ const SerieDetalle = () => {
                 <div className="info">    
                     <h1>{serie.original_name}</h1>
                     <p>{serie.overview ? serie.overview : "Lo sentimos. No hay información disponible."}</p>
+                    <p id="genero">Generos: {serie.genre_ids?.map((g) => {
+                        const genre = generos.find((gen) => gen.id === g);
+                        return genre?.name
+                    }).join(", ")}</p>
                 </div>
             </div>
             <iframe

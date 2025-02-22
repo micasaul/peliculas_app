@@ -6,12 +6,16 @@ import "../styles/details.css"
 const PeliculaDetalle = () => {
     const { original_title } = useParams();
     const [pelicula, setPelicula] = useState({});
+    const [generos, setGeneros] = useState([]);
     const [video, setVideo] = useState({});
     
     useEffect(() => {
         const cargarPelicula = async () => {
             const peliculaData = await getMovieByTitle(original_title);
             setPelicula(peliculaData.results[0]);
+
+            const generosData = await movieGenres();
+            setGeneros(generosData.genres);
 
             const videoData = await getMovieVideo(peliculaData.results[0].id);
             setVideo(videoData.results[0]);
@@ -26,6 +30,10 @@ const PeliculaDetalle = () => {
                 <div className="info">
                     <h1>{pelicula.original_title}</h1>
                     <p>{pelicula.overview ? pelicula.overview : "Lo sentimos. No hay información disponible"}</p>
+                    <p id="genero">Generos: {pelicula.genre_ids?.map((g) => {
+                        const genre = generos.find((gen) => gen.id === g);
+                        return genre?.name
+                    }).join(", ")}</p>
                 </div>
             </div>
             <iframe

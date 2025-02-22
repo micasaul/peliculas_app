@@ -4,6 +4,7 @@
     --fondo: #191919;
     --texto: #fff;
     --texto2: #000;
+    --texto3: #706f6f;
 }
 
 body{
@@ -52,4 +53,8 @@ body{
 .info p{
     color: var(--texto);
     font-family: raleway;
+}
+
+#genero{
+    color: var(--texto3);
 }
