@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { filmGenres, peliculasDefecto, seriesDefecto } from "../utils/api";
+import { movieGenres, movieDefecto, tvDefecto } from "../utils/api";
 import "../styles/genre.css";
 
 const SeriePeli = ({peli, serie }) => {
@@ -13,11 +13,11 @@ const SeriePeli = ({peli, serie }) => {
 
     useEffect(() => {
         const cargarContenido = async () => {
-            const seriesData = await seriesDefecto();
-            const peliculasData = await peliculasDefecto();
+            const seriesData = await tvDefecto();
+            const peliculasData = await movieDefecto();
             setSeriePelis(seriesData.results, peliculasData.results);
 
-            const generosData = await filmGenres();
+            const generosData = await movieGenres();
             setGeneros(generosData.genres);
         };
         cargarContenido();

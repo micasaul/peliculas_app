@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getPeliByGenre, getSerieByGenre, filmGenres, tvGenres } from "../utils/api";
+import { getMovieByGenre, getTvByGenre, movieGenres, tvGenres } from "../utils/api";
 import "../styles/genre.css";
 
 const SeriePeliGeneros = () =>{
@@ -13,13 +13,19 @@ const SeriePeliGeneros = () =>{
 
     useEffect(() => {
         const cargarContenido = async () => {
-            const peliculasData = await getPeliByGenre(genre);
-            const seriesData = await getSerieByGenre(genre);
+            const peliculasData = await getMovieByGenre(genre);
+            const seriesData = await getTvByGenre(genre);
             setSeriePelis([...peliculasData.results, ...seriesData.results]);
 
-            const generosPeliData = await filmGenres();
+            const generosPeliData = await movieGenres();
             const generosSerieData = await tvGenres();
-            setGeneros([...generosPeliData.genres, ...generosSerieData.genres]);
+            const generosTodos = [...generosPeliData.genres, ...generosSerieData.genres];
+
+            const generosUnicos = [
+              ...new Set(generosTodos.map((genero) => genero.id)),
+            ].map((id) => generosTodos.find((genero) => genero.id === id));
+
+            setGeneros(generosUnicos);
         };
         cargarContenido();
     }, [genre]);
