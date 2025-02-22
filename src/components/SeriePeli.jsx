@@ -1,12 +1,27 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { filmGenres, peliculasDefecto, seriesDefecto } from "../utils/api";
+import "../styles/genre.css";
 
 const SeriePeli = ({peli, serie }) => {
 
     const navigate = useNavigate();
 
-    const [seriepelis, setSeriePelis] = useState([]);
+    const [seriePelis, setSeriePelis] = useState([]);
+    const [generos, setGeneros] = useState([]);
+
+    useEffect(() => {
+        const cargarContenido = async () => {
+            const seriesData = await seriesDefecto();
+            const peliculasData = await peliculasDefecto();
+            setSeriePelis(seriesData.results, peliculasData.results);
+
+            const generosData = await filmGenres();
+            setGeneros(generosData.genres);
+        };
+        cargarContenido();
+    }, []);
 
     const shuffle = (array) => {
         const shuffled = [...array];
@@ -32,9 +47,20 @@ const SeriePeli = ({peli, serie }) => {
 
     return(
         <>
-            {seriepelis.length > 0 && (
+            {seriePelis.length > 0 && (
                 <div className="grid-container">
-                    {seriepelis.map((seriepeli) => (
+                    <div className="title">
+                        <select onChange={(e) => {
+                            const id = e.target.value
+                            navigate(`/pelicula-serie/genero/${id}`)
+                        }}>
+                            <option value="">Generos</option>
+                            {generos.map((genero) => (
+                                <option key={genero.id} value={genero.id}>{genero.original_title || genero.original_name}</option>
+                            ))}
+                        </select>
+                    </div>
+                    {seriePelis.map((seriepeli) => (
                         <button
                             key={seriepeli.id}
                             onClick={() => {
@@ -48,7 +74,7 @@ const SeriePeli = ({peli, serie }) => {
                                 <h1>{seriepeli.original_title || seriepeli.original_name}</h1>
                                 <img 
                                     src={`https://image.tmdb.org/t/p/w500${seriepeli.poster_path || ""}`}
-                                    alt={seriepeli.original_title || seriepeli.original_name} 
+                                    alt={seriepeli.original_title || seriepeli.original_name}
                                 />
                                 <p>{seriepeli.overview}</p>
                             </div>
