@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { tvGenres, getSerieByGenre } from "../utils/api";
+import "../styles/genre.css";
 
 const SerieGeneros = () =>{
 
@@ -21,21 +22,26 @@ const SerieGeneros = () =>{
         cargarContenido();
     }, [genre]);
 
+    const selectedGenre = generos.find((g) => g.id === parseInt(genre));
+
     return(
         <>
             {series.length > 0 && (
                 <div>
-                    <select
-                        onChange={(e) => {
-                            const id = e.target.value
-                            navigate(`/serie/genero/${id}`)
-                        }}
-                    >    
-                        <option value="">Generos</option>
-                        {generos.map((genero) => (
-                            <option key={genero.id} value={genero.id}>{genero.name}</option>
-                        ))}
-                    </select>
+                    <div className="title">
+                        <h1>{selectedGenre?.name}</h1>
+                        <select
+                            onChange={(e) => {
+                                const id = e.target.value
+                                navigate(`/serie/genero/${id}`)
+                            }}
+                        >    
+                            <option value="">Generos</option>
+                            {generos.map((genero) => (
+                                <option key={genero.id} value={genero.id}>{genero.name}</option>
+                            ))}
+                        </select>
+                    </div>
                     <div className="grid-container">
                         {series.map((serie) => (
                             <button

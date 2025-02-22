@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { seriesDefecto, tvGenres } from "../utils/api";
+import "../styles/genre.css";
 
 const Serie = () =>{
 
@@ -25,17 +26,19 @@ const Serie = () =>{
         <>
             {series.length > 0 && (
                 <div>
-                    <select 
-                        onChange={(e)=>{
-                            const id = e.target.value
-                            navigate(`/serie/genero/${id}`)
-                        }}
-                    >    
-                        <option value="">Generos</option>
-                        {generos.map((genero) => (
-                            <option key={genero.id} value={genero.id}>{genero.name}</option>
-                        ))}
-                    </select>
+                    <div className="title">
+                        <select 
+                            onChange={(e)=>{
+                                const id = e.target.value
+                                navigate(`/serie/genero/${id}`)
+                            }}
+                        >    
+                            <option value="">Generos</option>
+                            {generos.map((genero) => (
+                                <option key={genero.id} value={genero.id}>{genero.name}</option>
+                            ))}
+                        </select>
+                    </div>
                     <div className="grid-container">
                         {series.map((serie) => (
                             <button

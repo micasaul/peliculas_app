@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { peliculasDefecto, filmGenres } from "../utils/api";
+import "../styles/genre.css";
 
 const Pelicula = () =>{
 
@@ -24,15 +25,17 @@ const Pelicula = () =>{
         <>
             {peliculas.length > 0 && (
                 <div>
-                    <select onChange={(e) => {
-                        const id = e.target.value
-                        navigate(`/pelicula/genero/${id}`)
-                    }}>    
-                        <option value="">Generos</option>
-                        {generos.map((genero) => (
-                            <option key={genero.id} value={genero.id}>{genero.name}</option>
-                        ))}
-                    </select>
+                    <div className="title">
+                        <select onChange={(e) => {
+                            const id = e.target.value
+                            navigate(`/pelicula/genero/${id}`)
+                        }}>    
+                            <option value="">Generos</option>
+                            {generos.map((genero) => (
+                                <option key={genero.id} value={genero.id}>{genero.name}</option>
+                            ))}
+                        </select>
+                    </div>
                     <div className="grid-container">
                         {peliculas.map((pelicula) => (
                             <button

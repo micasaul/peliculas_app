@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --bordes: #333333;
+    --fondo: #191919;
+    --texto: #fff;
+    --texto2: #000;
+}   
+
+.title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.title h1{
+    margin: 0 0 0 30px;
+    font-family: darumadrop one;
+    font-size: 3vw;
+    color: var(--texto);
+}
+
+.title select{
+    right: 0;
+    margin-left: auto;
+    margin-right: 35px;
+    background-color: var(--bordes);
+    border: none;
+    border-radius: 4px;
+    color: var(--texto2);
+    height: 40px;
+    width: auto;
+}
