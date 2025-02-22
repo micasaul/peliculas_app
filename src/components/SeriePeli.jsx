@@ -45,45 +45,58 @@ const SeriePeli = ({peli, serie }) => {
         }
     }, [peli, serie]);
 
-    return(
-        <>
-            {seriePelis.length > 0 && (
-                <div className="grid-container">
-                    <div className="title">
-                        <select onChange={(e) => {
-                            const id = e.target.value
-                            navigate(`/pelicula-serie/genero/${id}`)
-                        }}>
-                            <option value="">Generos</option>
-                            {generos.map((genero) => (
-                                <option key={genero.id} value={genero.id}>{genero.original_title || genero.original_name}</option>
-                            ))}
-                        </select>
-                    </div>
-                    {seriePelis.map((seriepeli) => (
-                        <button
-                            key={seriepeli.id}
-                            onClick={() => {
-                                const title = seriepeli.original_title || seriepeli.original_name;
-                                const route = seriepeli.original_title ? `/pelicula/${title}` : `/serie/${title}`;
-                                navigate(route);
-                            }}
-                            className="button-card"
-                        >
-                            <div key={seriepeli.id} className="card">
-                                <h1>{seriepeli.original_title || seriepeli.original_name}</h1>
-                                <img 
-                                    src={`https://image.tmdb.org/t/p/w500${seriepeli.poster_path || ""}`}
-                                    alt={seriepeli.original_title || seriepeli.original_name}
-                                />
-                                <p>{seriepeli.overview}</p>
-                            </div>
-                        </button>
-                    ))}
-                </div>
-            )}
-        </>
-    )
+    return (
+      <>
+        {seriePelis.length > 0 && (
+          <div>
+            <div className="title">
+              <select
+                onChange={(e) => {
+                  const id = e.target.value;
+                  navigate(`/pelicula-serie-genero/${id}`);
+                }}
+              >
+                <option value="">Generos</option>
+                {generos.map((genero) => (
+                  <option key={genero.id} value={genero.id}>
+                    {genero.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="grid-container">
+              {seriePelis.map((seriepeli) => (
+                <button
+                  key={seriepeli.id}
+                  onClick={() => {
+                    const title =
+                      seriepeli.original_title || seriepeli.original_name;
+                    const route = seriepeli.original_title
+                      ? `/pelicula/${title}`
+                      : `/serie/${title}`;
+                    navigate(route);
+                  }}
+                  className="button-card"
+                >
+                  <div key={seriepeli.id} className="card">
+                    <h1>
+                      {seriepeli.original_title || seriepeli.original_name}
+                    </h1>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500${
+                        seriepeli.poster_path || ""
+                      }`}
+                      alt={seriepeli.original_title || seriepeli.original_name}
+                    />
+                    <p>{seriepeli.overview}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </>
+    );
 };
 
 SeriePeli.propTypes = {

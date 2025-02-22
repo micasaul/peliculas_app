@@ -33,7 +33,7 @@ const SerieGeneros = () =>{
                         <select
                             onChange={(e) => {
                                 const id = e.target.value
-                                navigate(`/serie/genero/${id}`)
+                                navigate(`/serie-genero/${id}`)
                             }}
                         >    
                             <option value="">Generos</option>

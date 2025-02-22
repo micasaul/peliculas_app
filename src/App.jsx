@@ -25,9 +25,9 @@ function App() {
         <Route path='/search/:busqueda' element={<Home />} />
         <Route path='/serie' element={<Serie />}/>
         <Route path='/pelicula' element={<Pelicula />}/>
-        <Route path='/serie/genero/:id' element={<SerieGeneros />} />
-        <Route path='/pelicula/genero/:id' element={<PeliculaGeneros />} />
-        <Route path='/pelicula-serie/genero/:id' element={<SeriePeliGeneros />} />
+        <Route path='/serie-genero/:id' element={<SerieGeneros />} />
+        <Route path='/pelicula-genero/:id' element={<PeliculaGeneros />} />
+        <Route path='/pelicula-serie-genero/:id' element={<SeriePeliGeneros />} />
         <Route path="/serie/:original_name" element={<SerieDetalle />} />
         <Route path="/pelicula/:original_title" element={<PeliculaDetalle />} />
       </Routes>
