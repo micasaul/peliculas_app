@@ -30,8 +30,8 @@ header{
 .logo{
     display: flex;
     justify-content: left;
-    margin-left: 10px;
-    height: 70px;
+    margin:0 0 0 10px;
+    height: 55px;
 }
 
 .menu{

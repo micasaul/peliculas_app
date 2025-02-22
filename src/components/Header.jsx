@@ -1,6 +1,6 @@
 import {useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import logo from "../assets/Logo_text.png";
+import logo from "../assets/logo_text.png";
 import "../styles/header.css";
 
 const Header = ({busqueda, setBusqueda}) => {
