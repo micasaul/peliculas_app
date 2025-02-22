@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { seriesDefecto, tvGenres } from "../utils/api";
+import { tvDefecto, tvGenres } from "../utils/api";
 import "../styles/genre.css";
 
 const Serie = () =>{
@@ -12,7 +12,7 @@ const Serie = () =>{
 
     useEffect(() => {
         const cargarDatos = async () => {
-          const seriesData = await seriesDefecto();
+          const seriesData = await tvDefecto();
           setSeries(seriesData.results);
 
           const generosData = await tvGenres();

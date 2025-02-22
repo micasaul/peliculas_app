@@ -13,12 +13,21 @@ body{
 
 .cuerpo{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    background-color: var(--fondo);
+}
+
+.sinopsis{
+    display: flex;
+    flex-direction: row;
     width: 60%;
     margin: 60px auto;
     gap: 50px;
 }
 
-.cuerpo img{
+.sinopsis img{
     height: 300px;
     width: auto;
 }
