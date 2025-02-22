@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getByName, getByTitle, peliculasDefecto, seriesDefecto } from "../utils/api";
+import { getTvByName, getMovieByTitle, movieDefecto, tvDefecto } from "../utils/api";
 import SeriePeli from "./SeriePeli";
 import "../styles/home.css";
 
@@ -14,13 +14,13 @@ const Home = () => {
   useEffect(() => {
     const cargarContenido = async () => {
       if (busquedaParam) {
-        const peliculasData = await getByTitle(busquedaParam);
-        const seriesData = await getByName(busquedaParam);
+        const peliculasData = await getMovieByTitle(busquedaParam);
+        const seriesData = await getTvByName(busquedaParam);
         setPeliculas(peliculasData.results);
         setSeries(seriesData.results);
       } else{
-        const peliculasData = await peliculasDefecto();
-        const seriesData = await seriesDefecto();
+        const peliculasData = await movieDefecto();
+        const seriesData = await tvDefecto();
         setPeliculas(peliculasData.results);
         setSeries(seriesData.results);
       };

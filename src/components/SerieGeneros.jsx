@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { tvGenres, getSerieByGenre } from "../utils/api";
+import { tvGenres, getTvByGenre } from "../utils/api";
 import "../styles/genre.css";
 
 const SerieGeneros = () =>{
@@ -13,7 +13,7 @@ const SerieGeneros = () =>{
 
     useEffect(() => {
         const cargarContenido = async () => {
-          const seriesData = await getSerieByGenre(genre);
+          const seriesData = await getTvByGenre(genre);
           setSeries(seriesData.results);
 
           const generosData = await tvGenres();

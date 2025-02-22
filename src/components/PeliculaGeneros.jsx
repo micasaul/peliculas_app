@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getPeliByGenre, filmGenres } from "../utils/api";
+import { getMovieByGenre, movieGenres } from "../utils/api";
 import "../styles/genre.css";
 
 const PeliculaGeneros = () =>{
@@ -13,10 +13,10 @@ const PeliculaGeneros = () =>{
 
     useEffect(() => {
         const cargarContenido = async () => {
-          const peliculasData = await getPeliByGenre(genre);
+          const peliculasData = await getMovieByGenre(genre);
           setPeliculas(peliculasData.results);
 
-          const generosData = await filmGenres();
+          const generosData = await movieGenres();
           setGeneros(generosData.genres);
         };
         cargarContenido();
