@@ -4,10 +4,11 @@ import Home from './components/Home'
 import Header from './components/Header'
 import Serie from './components/Serie'
 import Pelicula from './components/Pelicula'
-import SerieGeneros from './components/SerieGeneros'
-import PeliculaGeneros from './components/PeliculaGeneros'
 import SerieDetalle from './components/SerieDetalle'
 import PeliculaDetalle from './components/PeliculaDetalle'
+import SerieGeneros from './components/SerieGeneros'
+import PeliculaGeneros from './components/PeliculaGeneros'
+import SeriePeliGeneros from './components/SeriePeliGeneros'
 import './App.css'
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Route path='/search/:busqueda' element={<Home />} />
         <Route path='/serie' element={<Serie />}/>
         <Route path='/pelicula' element={<Pelicula />}/>
-        <Route path='/serie/genero/:id' element={<SerieGeneros />} />
-        <Route path='/pelicula/genero/:id' element={<PeliculaGeneros />} />
+        <Route path='/serie-genero/:id' element={<SerieGeneros />} />
+        <Route path='/pelicula-genero/:id' element={<PeliculaGeneros />} />
+        <Route path='/pelicula-serie-genero/:id' element={<SeriePeliGeneros />} />
         <Route path="/serie/:original_name" element={<SerieDetalle />} />
         <Route path="/pelicula/:original_title" element={<PeliculaDetalle />} />
       </Routes>

@@ -58,3 +58,7 @@ body{
 #genero{
     color: var(--texto3);
 }
+
+.frame {
+    padding: 25px;
+}

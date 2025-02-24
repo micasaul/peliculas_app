@@ -32,7 +32,7 @@ const PeliculaGeneros = () =>{
                         <h1>{selectedGenre?.name}</h1>
                         <select onChange={(e) => {
                                 const id = e.target.value
-                                navigate(`/pelicula/genero/${id}`)
+                                navigate(`/pelicula-genero/${id}`)
                             }}
                         >
                             <option value="">Generos</option>  
