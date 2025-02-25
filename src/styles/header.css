@@ -2,8 +2,9 @@
 :root{
     --bordes: #333333;
     --fondo: #191919;
-    --texto: #fff;
+    --texto: #c4c4c4;
     --texto2: #000;
+    --texto3: #706f6f;
 }   
 
 header{
@@ -37,10 +38,8 @@ header{
 .menu{
     display: flex;
     justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
+    align-items: center;
+    flex-grow: 1;
     gap: 10px;
     height: 100%;
 }
@@ -65,8 +64,6 @@ header{
     display: flex;
     align-items: center;
     margin-right: 15px;
-    position: absolute;
-    right: 0;
 }   
 
 .busqueda input{

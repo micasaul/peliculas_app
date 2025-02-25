@@ -2,8 +2,9 @@
 :root{
     --bordes: #333333;
     --fondo: #191919;
-    --texto: #fff;
+    --texto: #c4c4c4;
     --texto2: #000;
+    --texto3: #706f6f;
 }   
 
 .title {
